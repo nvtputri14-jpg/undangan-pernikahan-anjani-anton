@@ -1,0 +1,169 @@
+<!doctype html>
+<html lang="id">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Undangan Pernikahan</title>
+
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@1,500&family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        background: #000;
+        font-family: "Montserrat", sans-serif;
+        overflow: hidden;
+      }
+
+      /* ===== FOTO ===== */
+      .hero {
+        position: relative;
+        width: 100%;
+        height: 100vh;
+        background:
+          linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.6)),
+          url("pasangan.jpeg") center center no-repeat;
+        background-size: contain;
+      }
+
+      /* ===== TAP ===== */
+      .tap {
+        position: absolute;
+        inset: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background: rgba(0, 0, 0, 0.65);
+        color: #fff;
+        font-size: 16px;
+        z-index: 10;
+        cursor: pointer;
+      }
+
+      /* ===== AREA TEKS (DIKUNCI) ===== */
+      .text-area {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: -100%;
+        width: 100%;
+        max-width: 520px; /* ⬅️ kunci agar tidak melebar */
+        padding: 20px;
+        text-align: center;
+        color: #ddd;
+        animation: scrollUp 36s linear forwards;
+        animation-play-state: paused;
+      }
+
+      /* ANIMASI */
+      @keyframes scrollUp {
+        from {
+          bottom: -100%;
+        }
+        to {
+          bottom: 12%;
+        }
+      }
+
+      /* ===== TEKS ===== */
+      .nama {
+        font-family: "Playfair Display", cursive;
+        font-size: 36px;
+        color: #f5f5f5;
+        margin: 12px 0;
+      }
+
+      .sub {
+        font-size: 15px;
+        color: #ccc;
+        line-height: 1.8;
+        margin-bottom: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <audio id="musik" src="musik.mp3" loop></audio>
+
+    <div class="hero">
+      <div class="tap" id="tap">Ketuk layar untuk membuka undangan</div>
+
+      <div class="text-area" id="text">
+        <p class="sub">بِسْمِ اللّٰهِ الرَّحْمٰنِ الرَّحِيْمِ</p>
+
+        <p class="sub">
+          Assalamu’alaikum Warahmatullahi Wabarakatuh
+          <br /><br />
+          Dengan memohon rahmat dan ridho Allah SWT, serta dengan penuh rasa
+          syukur ke hadirat-Nya, kami bermaksud menyampaikan kabar bahagia
+          sekaligus mengundang Bapak/Ibu/Saudara/i untuk hadir dan memberikan
+          doa restu pada acara pernikahan kami.
+        </p>
+
+        <div class="nama">Anton Sawadi</div>
+        <p class="sub">
+          Putra dari Bapak <b>Herman Depi</b><br />
+          dan Ibu <b>Siti Masmuda</b>
+        </p>
+
+        <div class="nama">&</div>
+
+        <div class="nama">Dewi Anjani</div>
+        <p class="sub">
+          Putri dari Bapak <b>Bako Roni</b><br />
+          dan Ibu <b>Asniwati</b>
+        </p>
+
+        <p class="sub">
+          Akad Nikah akan dilaksanakan pada:
+          <br /><br />
+          <b>Minggu, 08 Januari 2026</b><br />
+          Pukul <b>10.00 WIB</b><br />
+          Kediaman Mempelai Wanita<br />
+          Jln. Lorong Batu Ampar, Karang Endah, Lenkiti
+        </p>
+
+        <h3>TANDA KASIH</h3>
+        <p>
+          Tanpa mengurangi rasa hormat,<br />
+          bagi Bapak/Ibu/Saudara/i yang berkenan<br />
+          menyampaikan tanda kasih sebagai doa dan dukungan,<br />
+          dapat disalurkan melalui transfer digital.<br /><br />
+        </p>
+
+        <p class="sub">
+          💙 <b>DANA</b><br />
+          089676407303<br />
+          a.n <b>Dewi Anjani</b>
+        </p>
+
+        <p class="sub">
+          Atas segala doa, perhatian, dan kehadiran Bapak/Ibu/Saudara/i, kami
+          ucapkan terima kasih yang sebesar-besarnya.
+          <br /><br />
+          Wassalamu’alaikum Warahmatullahi Wabarakatuh
+        </p>
+      </div>
+    </div>
+
+    <script>
+      const tap = document.getElementById("tap");
+      const musik = document.getElementById("musik");
+      const text = document.getElementById("text");
+
+      tap.onclick = () => {
+        tap.style.display = "none";
+        musik.play();
+        text.style.animationPlayState = "running";
+      };
+    </script>
+  </body>
+</html>
